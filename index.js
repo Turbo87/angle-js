@@ -143,4 +143,20 @@ Angle.prototype.normalized = function() {
     return Angle.fromRadians(value);
 };
 
+/**
+ * Returns a new {@link Angle} instance representing the normalized delta value (-180 to 180 degrees).
+ * @returns {Angle}
+ */
+Angle.prototype.normalizedDelta = function() {
+    var value = this._value;
+
+    value = value % FULL_CIRCLE;
+    if (value < -HALF_CIRCLE)
+        value += FULL_CIRCLE;
+    if (value > HALF_CIRCLE)
+        value -= FULL_CIRCLE;
+
+    return Angle.fromRadians(value);
+};
+
 module.exports = Angle;

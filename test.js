@@ -29,6 +29,12 @@ describe('Angle', function() {
         });
     });
 
+    describe('zero()', function() {
+        it('should return an Angle instance representing 0 degrees', function() {
+            assert.equal(Angle.zero().inDegrees(), 0);
+        });
+    });
+
     describe('fullCircle()', function() {
         it('should return an Angle instance representing a full circle (360 degrees)', function() {
             assert.equal(Angle.fullCircle().inDegrees(), 360);

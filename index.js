@@ -42,6 +42,15 @@ Angle.fromRadians = function(radians) {
 };
 
 /**
+ * Creates a new {@link Angle} instance representing 0 degrees.
+ *
+ * @returns {Angle}
+ */
+Angle.zero = function() {
+    return Angle.fromRadians(0);
+};
+
+/**
  * Creates a new {@link Angle} instance representing a full circle (360 degrees).
  *
  * @returns {Angle}

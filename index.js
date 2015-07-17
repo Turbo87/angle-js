@@ -7,6 +7,10 @@ var PI_HALF = Math.PI / 2;
 var DEG_TO_RAD = PI / 180;
 var RAD_TO_DEG = 180 / PI;
 
+var FULL_CIRCLE = PI2;
+var HALF_CIRCLE = PI;
+var QUARTER_CIRCLE = PI_HALF;
+
 /**
  * @constructor
  * @param {Number} radians
@@ -56,7 +60,7 @@ Angle.zero = function() {
  * @returns {Angle}
  */
 Angle.fullCircle = function() {
-    return Angle.fromRadians(PI2);
+    return Angle.fromRadians(FULL_CIRCLE);
 };
 
 /**
@@ -65,7 +69,7 @@ Angle.fullCircle = function() {
  * @returns {Angle}
  */
 Angle.halfCircle = function() {
-    return Angle.fromRadians(PI);
+    return Angle.fromRadians(HALF_CIRCLE);
 };
 
 /**
@@ -74,7 +78,7 @@ Angle.halfCircle = function() {
  * @returns {Angle}
  */
 Angle.quarterCircle = function() {
-    return Angle.fromRadians(PI_HALF);
+    return Angle.fromRadians(QUARTER_CIRCLE);
 };
 
 /**

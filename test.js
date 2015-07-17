@@ -29,6 +29,24 @@ describe('Angle', function() {
         });
     });
 
+    describe('fullCircle()', function() {
+        it('should return an Angle instance representing a full circle (360 degrees)', function() {
+            assert.equal(Angle.fullCircle().inDegrees(), 360);
+        });
+    });
+
+    describe('halfCircle()', function() {
+        it('should return an Angle instance representing a half circle (180 degrees)', function() {
+            assert.equal(Angle.halfCircle().inDegrees(), 180);
+        });
+    });
+
+    describe('quarterCircle()', function() {
+        it('should return an Angle instance representing a quarter circle (90 degrees)', function() {
+            assert.equal(Angle.quarterCircle().inDegrees(), 90);
+        });
+    });
+
     describe('toDegrees()', function() {
         it('should return angle in degrees', function() {
             assert.equal(Angle.fromDegrees(0).inDegrees(), 0);

@@ -42,6 +42,33 @@ Angle.fromRadians = function(radians) {
 };
 
 /**
+ * Creates a new {@link Angle} instance representing a full circle (360 degrees).
+ *
+ * @returns {Angle}
+ */
+Angle.fullCircle = function() {
+    return Angle.fromRadians(PI2);
+};
+
+/**
+ * Creates a new {@link Angle} instance representing a half circle (180 degrees).
+ *
+ * @returns {Angle}
+ */
+Angle.halfCircle = function() {
+    return Angle.fromRadians(PI);
+};
+
+/**
+ * Creates a new {@link Angle} instance representing a quarter circle (90 degrees).
+ *
+ * @returns {Angle}
+ */
+Angle.quarterCircle = function() {
+    return Angle.fromRadians(PI_HALF);
+};
+
+/**
  * Returns the encapsulated angle in degrees.
  * @returns {number}
  */

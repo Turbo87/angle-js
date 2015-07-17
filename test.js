@@ -123,4 +123,31 @@ describe('Angle', function() {
             assert.closeTo(Angle.fromDegrees(60).tan(), Math.tan(60 * Math.PI / 180), DELTA);
         });
     });
+
+    describe('normalized()', function() {
+        it('should return a new Angle instance', function() {
+            var angle = Angle.fromDegrees(1122);
+            assert.notStrictEqual(angle.normalized(), angle);
+        });
+
+        it('should return normalized angle', function() {
+            assert.closeTo(Angle.fromDegrees(0).normalized().inDegrees(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(90).normalized().inDegrees(), 90, DELTA);
+            assert.closeTo(Angle.fromDegrees(180).normalized().inDegrees(), 180, DELTA);
+            assert.closeTo(Angle.fromDegrees(270).normalized().inDegrees(), 270, DELTA);
+            assert.closeTo(Angle.fromDegrees(360).normalized().inDegrees(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(450).normalized().inDegrees(), 90, DELTA);
+            assert.closeTo(Angle.fromDegrees(540).normalized().inDegrees(), 180, DELTA);
+
+            assert.closeTo(Angle.fromDegrees(-90).normalized().inDegrees(), 270, DELTA);
+            assert.closeTo(Angle.fromDegrees(-180).normalized().inDegrees(), 180, DELTA);
+            assert.closeTo(Angle.fromDegrees(-270).normalized().inDegrees(), 90, DELTA);
+            assert.closeTo(Angle.fromDegrees(-360).normalized().inDegrees(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(-450).normalized().inDegrees(), 270, DELTA);
+            assert.closeTo(Angle.fromDegrees(-540).normalized().inDegrees(), 180, DELTA);
+
+            assert.closeTo(Angle.fromDegrees(1122.3).normalized().inDegrees(), 42.3, DELTA);
+            assert.closeTo(Angle.fromDegrees(-42.9).normalized().inDegrees(), 317.1, DELTA);
+        });
+    });
 });

@@ -129,4 +129,18 @@ Angle.prototype.tan = function() {
     return Math.tan(this._value);
 };
 
+/**
+ * Returns a new {@link Angle} instance representing the normalized value (0 to 360 degrees).
+ * @returns {Angle}
+ */
+Angle.prototype.normalized = function() {
+    var value = this._value;
+
+    value = value % FULL_CIRCLE;
+    if (value < 0)
+        value += FULL_CIRCLE;
+
+    return Angle.fromRadians(value);
+};
+
 module.exports = Angle;

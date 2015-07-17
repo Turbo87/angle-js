@@ -93,4 +93,12 @@ Angle.prototype.inRadians = function() {
     return this._value;
 };
 
+/**
+ * Returns a new {@link Angle} instance representing the absolute value.
+ * @returns {Angle}
+ */
+Angle.prototype.absolute = function() {
+    return Angle.fromRadians(Math.abs(this._value));
+};
+
 module.exports = Angle;

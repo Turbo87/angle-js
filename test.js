@@ -76,4 +76,18 @@ describe('Angle', function() {
             assert.equal(Angle.fromDegrees(180).inRadians(), Math.PI);
         });
     });
+
+    describe('absolute()', function() {
+        it('should return a new Angle instance', function() {
+            var angle = Angle.fromDegrees(42);
+            assert.notStrictEqual(angle.absolute(), angle);
+        });
+
+        it('should return absolute angle', function() {
+            assert.equal(Angle.fromDegrees(-42).absolute().inDegrees(), 42);
+            assert.equal(Angle.fromDegrees(0).absolute().inDegrees(), 0);
+            assert.equal(Angle.fromDegrees(42).absolute().inDegrees(), 42);
+            assert.equal(Angle.fromDegrees(9000).absolute().inDegrees(), 9000);
+        });
+    });
 });

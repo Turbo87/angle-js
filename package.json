@@ -1,0 +1,29 @@
+{
+  "name": "@turbo87/angle",
+  "version": "0.1.0",
+  "description": "Number wrapper for angle calculations",
+  "license": "MIT",
+  "repository": "Turbo87/angle-js",
+  "author": {
+    "email": "tobias.bieniek@gmx.de",
+    "name": "Tobias Bieniek",
+    "url": "github.com/turbo87"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "angle"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.1.0",
+    "mocha": "*"
+  }
+}

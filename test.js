@@ -3,6 +3,8 @@
 var assert = require('chai').assert;
 var Angle = require('./');
 
+var DELTA = 0.00000001;
+
 describe('Angle', function() {
     it('works as advertised', function() {
         var angle = Angle.fromRadians(Math.PI);
@@ -88,6 +90,37 @@ describe('Angle', function() {
             assert.equal(Angle.fromDegrees(0).absolute().inDegrees(), 0);
             assert.equal(Angle.fromDegrees(42).absolute().inDegrees(), 42);
             assert.equal(Angle.fromDegrees(9000).absolute().inDegrees(), 9000);
+        });
+    });
+
+    describe('sin()', function() {
+        it('should return sine of the angle', function() {
+            assert.closeTo(Angle.fromDegrees(0).sin(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(90).sin(), 1, DELTA);
+            assert.closeTo(Angle.fromDegrees(180).sin(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(270).sin(), -1, DELTA);
+            assert.closeTo(Angle.fromDegrees(360).sin(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(-42).sin(), Math.sin(-42 * Math.PI / 180), DELTA);
+        });
+    });
+
+    describe('cos()', function() {
+        it('should return cosine of the angle', function() {
+            assert.closeTo(Angle.fromDegrees(0).cos(), 1, DELTA);
+            assert.closeTo(Angle.fromDegrees(90).cos(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(180).cos(), -1, DELTA);
+            assert.closeTo(Angle.fromDegrees(270).cos(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(360).cos(), 1, DELTA);
+            assert.closeTo(Angle.fromDegrees(-42).cos(), Math.cos(-42 * Math.PI / 180), DELTA);
+        });
+    });
+
+    describe('tan()', function() {
+        it('should return tangent of the angle', function() {
+            assert.closeTo(Angle.fromDegrees(-45).tan(), -1, DELTA);
+            assert.closeTo(Angle.fromDegrees(0).tan(), 0, DELTA);
+            assert.closeTo(Angle.fromDegrees(45).tan(), 1, DELTA);
+            assert.closeTo(Angle.fromDegrees(60).tan(), Math.tan(60 * Math.PI / 180), DELTA);
         });
     });
 });

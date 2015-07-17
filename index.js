@@ -101,4 +101,28 @@ Angle.prototype.absolute = function() {
     return Angle.fromRadians(Math.abs(this._value));
 };
 
+/**
+ * Returns the sine of the encapsulated angle.
+ * @returns {number}
+ */
+Angle.prototype.sin = function() {
+    return Math.sin(this._value);
+};
+
+/**
+ * Returns the cosine of the encapsulated angle.
+ * @returns {number}
+ */
+Angle.prototype.cos = function() {
+    return Math.cos(this._value);
+};
+
+/**
+ * Returns the tangent of the encapsulated angle.
+ * @returns {number}
+ */
+Angle.prototype.tan = function() {
+    return Math.tan(this._value);
+};
+
 module.exports = Angle;

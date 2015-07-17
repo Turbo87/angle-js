@@ -177,4 +177,16 @@ describe('Angle', function() {
             assert.closeTo(Angle.fromDegrees(-42.9).normalizedDelta().inDegrees(), -42.9, DELTA);
         });
     });
+
+    describe('closeTo()', function() {
+        it('should return true if other angle is close', function() {
+            assert.isTrue(Angle.fromDegrees(90).closeTo(Angle.fromDegrees(92), Angle.fromDegrees(5)));
+            assert.isFalse(Angle.fromDegrees(90).closeTo(Angle.fromDegrees(92), Angle.fromDegrees(1)));
+
+            assert.isTrue(Angle.fromDegrees(0).closeTo(Angle.fromDegrees(359), Angle.fromDegrees(5)));
+            assert.isFalse(Angle.fromDegrees(0).closeTo(Angle.fromDegrees(350), Angle.fromDegrees(5)));
+            assert.isTrue(Angle.fromDegrees(359).closeTo(Angle.fromDegrees(0), Angle.fromDegrees(5)));
+            assert.isFalse(Angle.fromDegrees(350).closeTo(Angle.fromDegrees(0), Angle.fromDegrees(5)));
+        });
+    });
 });

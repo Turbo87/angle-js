@@ -159,4 +159,19 @@ Angle.prototype.normalizedDelta = function() {
     return Angle.fromRadians(value);
 };
 
+/**
+ * Returns whether this {@link Angle} is close to the {@linkcode other} {@link Angle}
+ * (within the {@linkcode threshold}).
+ *
+ * @param {Angle} other
+ * @param {Angle} threshold
+ * @returns {boolean}
+ */
+Angle.prototype.closeTo = function(other, threshold) {
+    var delta = Angle.fromRadians(this._value - other._value).normalizedDelta();
+
+    return delta._value >= -threshold._value &&
+        delta._value <= threshold._value;
+};
+
 module.exports = Angle;

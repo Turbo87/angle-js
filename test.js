@@ -189,4 +189,21 @@ describe('Angle', function() {
             assert.isFalse(Angle.fromDegrees(350).closeTo(Angle.fromDegrees(0), Angle.fromDegrees(5)));
         });
     });
+
+    describe('between()', function() {
+        it('should return true if angle is between other angles', function() {
+            assert.isTrue(Angle.fromDegrees(80).between(Angle.fromDegrees(70), Angle.fromDegrees(90)));
+            assert.isFalse(Angle.fromDegrees(80).between(Angle.fromDegrees(90), Angle.fromDegrees(70)));
+
+            assert.isFalse(Angle.fromDegrees(340).between(Angle.fromDegrees(350), Angle.fromDegrees(10)));
+            assert.isTrue(Angle.fromDegrees(359).between(Angle.fromDegrees(350), Angle.fromDegrees(10)));
+            assert.isTrue(Angle.fromDegrees(1).between(Angle.fromDegrees(350), Angle.fromDegrees(10)));
+            assert.isFalse(Angle.fromDegrees(20).between(Angle.fromDegrees(350), Angle.fromDegrees(10)));
+
+            assert.isTrue(Angle.fromDegrees(340).between(Angle.fromDegrees(10), Angle.fromDegrees(350)));
+            assert.isFalse(Angle.fromDegrees(359).between(Angle.fromDegrees(10), Angle.fromDegrees(350)));
+            assert.isFalse(Angle.fromDegrees(1).between(Angle.fromDegrees(10), Angle.fromDegrees(350)));
+            assert.isTrue(Angle.fromDegrees(20).between(Angle.fromDegrees(10), Angle.fromDegrees(350)));
+        });
+    });
 });

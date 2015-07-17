@@ -174,4 +174,19 @@ Angle.prototype.closeTo = function(other, threshold) {
         delta._value <= threshold._value;
 };
 
+/**
+ * Returns whether this {@link Angle} is close to the {@linkcode other} {@link Angle}
+ * (within the {@linkcode threshold}).
+ *
+ * @param {Angle} start
+ * @param {Angle} end
+ * @returns {boolean}
+ */
+Angle.prototype.between = function(start, end) {
+    var width = Angle.fromRadians(end._value - start._value).normalized();
+    var delta = Angle.fromRadians(this._value - start._value).normalized();
+
+    return delta._value <= width._value;
+};
+
 module.exports = Angle;

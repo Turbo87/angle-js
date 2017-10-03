@@ -24,6 +24,6 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.0.2",
-    "mocha": "*"
+    "mocha": ">=4.0.0"
   }
 }
